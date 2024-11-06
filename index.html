@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,6 +34,8 @@
 </head>
 
 <body>
+
+
     <!-- Topbar Start -->
     <div class="container-fluid px-1 d-none d-lg-block">
         <div class="row gx-2 py-1 align-items-center">
@@ -40,14 +44,17 @@
                 <div class="d-flex align-items-center ms-5">
                     <a href="index.html" class="navbar-brand d-flex align-items-center">
                         <img src="img/logo.jpg" alt="" width="70" height="70">
-                        <h1 class="m-0 fs-4 text-primary ms-4"><span class="text-secondary ms-4">Pakistan Agriculture
-                                Research Council </span> <br>
+                        <h1 class="m-0 fs-4 text-primary ms-4">
+                            <span class="text-secondary ms-4" id="animated-heading">Pakistan Agriculture Research Council</span> <br>
                             <hr style="padding: 0; margin: 1px; height: 2px;">
-                            Ministry of National Food Security & Research
+                            <span id="animated-heading2">Ministry of National Food Security and Research</span>
                         </h1>
+
                     </a>
                 </div>
             </div>
+            <script src="css/script.js"></script>
+
             <div class="col-lg-5">
                 <div class="d-flex align-items-center justify-content-end">
                     <i class="bi bi-phone-vibrate fs-2 text-primary me-2"></i>
@@ -204,9 +211,9 @@
     <!-- Carousel Start -->
     <div class="container-fluid p-0">
         <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
-            <div class="carousel-inner w-100 h-100">
+            <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="w-100 h-100" src="https://www.parc.gov.pk/SiteImage/Slider/thumbnail_dsc_5120copy.jpeg"
+                    <img class="w-100" src="https://www.parc.gov.pk/SiteImage/Slider/thumbnail_dsc_5120copy.jpeg"
                         alt="Image">
                     <div
                         class="carousel-caption top-0 bottom-0 start-0 end-0 d-flex flex-column align-items-center justify-content-center">
@@ -219,7 +226,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="w-100 h-100 " src="img/carousel-2.jpg" alt="Image">
+                    <img class="w-100" src="img/carousel-2.jpg" alt="Image">
                     <div
                         class="carousel-caption top-0 bottom-0 start-0 end-0 d-flex flex-column align-items-center justify-content-center">
                         <div class="text-start p-5" style="max-width: 900px;">
@@ -271,10 +278,42 @@
         </div>
     </div>
     <!-- Banner Start -->
+    <!-- JavaScript -->
+    <script>
+        // Function to check if the element is at least 10% in the viewport
+        function isInViewport(element, threshold = 0.2) {
+            const rect = element.getBoundingClientRect();
+            const elementHeight = rect.height;
+            const visibleHeight = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
 
+            // Calculate the visible ratio of the element
+            const visibleRatio = visibleHeight / elementHeight;
+
+            // Check if visible ratio meets the threshold
+            return visibleRatio >= threshold;
+        }
+
+        // Function to handle scrolling and add 'active' class
+        function handleScroll() {
+            const elements = document.querySelectorAll('.slide-left, .slide-right');
+
+            elements.forEach((element) => {
+                // Only add 'active' if element is in viewport and does not already have 'active'
+                if (isInViewport(element, 0.1) && !element.classList.contains('active')) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        // Listen for scroll events
+        window.addEventListener('scroll', handleScroll);
+
+        // Run on page load to check any elements already in view
+        handleScroll();
+    </script>
 
     <!-- About Start -->
-    <div class="container-fluid about pt-5">
+    <div class="container-fluid about pt-5 slide-left">
         <div class="container">
             <div class="row gx-5">
                 <div class="col-lg-4 mb-5 mb-lg-0">
@@ -289,7 +328,7 @@
                 </div>
                 <div class="col-lg-8 pb-5">
                     <div class="mb-3 pb-2">
-                        <h6 class="text-primary text-uppercase">About Us</h6>
+                        <h6 class="text-primary text-uppercase">About Us </h6>
                         <h1 class="display-5">Pakistan Agricultural Research Council</h1>
                     </div>
                     <p class="mb-4">(PARC) is a premier institution dedicated to advancing agricultural research and
@@ -404,7 +443,7 @@
 
 
     <!-- Services Start -->
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-5 slide-right">
         <div class="container">
             <div class="row g-5">
                 <div class="col-lg-4 col-md-6">
@@ -464,7 +503,7 @@
 
 
     <!-- Features Start -->
-    <div class="container-fluid bg-primary feature py-5 pb-lg-0 my-5">
+    <div class="container-fluid bg-primary feature py-5 pb-lg-0 my-5 slider-left">
         <div class="container py-5 pb-lg-0">
             <div class="mx-auto text-center mb-3 pb-2" style="max-width: 500px;">
                 <h6 class="text-uppercase text-secondary">Features</h6>
@@ -596,7 +635,7 @@
 
 
     <!-- Testimonial Start -->
-    <div class="container-fluid bg-testimonial py-5 my-5">
+    <div class="container-fluid bg-testimonial py-5 my-5 slide-right">
         <div class="container py-5">
             <div class="row justify-content-center">
                 <div class="col-lg-7">
@@ -630,7 +669,7 @@
 
 
     <!-- Team Start -->
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-5 slide-left">
         <div class="container">
             <div class="mx-auto text-center mb-5" style="max-width: 500px;">
                 <h6 class="text-primary text-uppercase">Our Team & Experts</h6>
@@ -774,86 +813,80 @@
 
     <!-- Footer Start -->
     <div class="container-fluid bg-footer bg-primary text-white mt-5">
-        <div class="container" style="align-items: center; justify-content: center;">
-            <div class="row pt-3">
-                <div class="col-lg-3 col-md-3 ">
-                    <div class="col-lg-12 col-md-12 pt-0 pt-lg-5 mb-5 footer-text">
-                        <h4 class="text-white mb-4">Find Us</h4>
-                        <div class="d-flex mb-2">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3318.572594427372!2d73.09385401452644!3d33.72000684261363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfc07bad49eb3f%3A0x8aa08e06ff8f208b!2sPakistan%20Agricultural%20Research%20Council!5e0!3m2!1sen!2sus!4v1665989870869!5m2!1sen!2sus"
-                                width="250" height="250" style="border:0;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="container" style="padding: 0; margin: 0px 0px 0px 10vh;">
+            <div class="row gx-5">
+                <div class="col-lg-12 col-md-6">
+                    <div class="row gx-5">
+                        <div class="col-lg-2 w-25 col-md-12 pt-0 pt-lg-5 mb-5 footer-text">
+                            <h4 class="text-white mb-4">Find Us</h4>
+                            <div class="d-flex mb-2">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3318.572594427372!2d73.09385401452644!3d33.72000684261363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfc07bad49eb3f%3A0x8aa08e06ff8f208b!2sPakistan%20Agricultural%20Research%20Council!5e0!3m2!1sen!2sus!4v1665989870869!5m2!1sen!2sus"
+                                    width="250" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
 
+                            </div>
+                        </div>
+                        <div class="col-lg-3 w-25 col-md-12 pt-0 pt-lg-5 mb-5 footer-text">
+                            <h4 class="text-white mb-4">Departments</h4>
+                            <div class="d-flex flex-column justify-content-start">
+                                <a class="text-white mb-2" href="#"><i
+                                        class="bi bi-arrow-right text-white me-2"></i>PARC-NARC Islamabad</a>
+                                <a class="text-white mb-2" href="#"><i
+                                        class="bi bi-arrow-right text-white me-2"></i>PARC-AZRC D.I.Khan</a>
+                                <a class="text-white mb-2" href="#"><i
+                                        class="bi bi-arrow-right text-white me-2"></i>PARC-BARDC Quetta</a>
+                                <a class="text-white mb-2" href="#"><i
+                                        class="bi bi-arrow-right text-white me-2"></i>PARC-AZRI Bhawalpur</a>
+                                <a class="text-white mb-2" href="#"><i
+                                        class="bi bi-arrow-right text-white me-2"></i>PARC-NSCRI, Thatta</a>
+                                <a class="text-white" href="#"><i
+                                        class="bi bi-arrow-right text-white me-2"></i>PARC-MARC Gilgit</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 w-25 col-md-12 pt-0 pt-lg-5 mb-5  footer-text">
+                            <h4 class="text-white mb-4">Quick Links</h4>
+                            <div class="d-flex flex-column justify-content-start">
+                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>
+                                    PARC Agrotech Company (PATCO)</a>
+                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>
+                                    PMAS-Arid Agriculture University Rawalpindi</a>
+                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>
+                                    Ministry of National Food Security & Research</a>
+                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>
+                                    University of Agriculture Faisalabad</a>
+                                <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>
+                                    Pakistan Flora (Medicinal & Aromatic Plants Herbarium, PARC)</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 w-25 col-md-12 pt-0 pt-lg-5 mb-5 footer-text">
+                            <h4 class="text-white mb-4">Get In Touch</h4>
+                            <div class="d-flex mb-2">
+                                <i class="bi bi-geo-alt text-white me-2"></i>
+                                <p class="text-white mb-0">Plot 20 Sector G-5/1, Islamabad, Pakistan</p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <i class="bi bi-envelope-open text-white me-2"></i>
+                                <p class="text-white mb-0">webmaster@parc.gov.pk</p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <i class="bi bi-telephone text-white me-2"></i>
+                                <p class="text-white mb-0">0800-84420</p>
+                            </div>
+                            <div class="d-flex mt-4">
+                                <a class="btn btn-secondary btn-square rounded-circle me-2" href="#"><i
+                                        class="fab fa-twitter"></i></a>
+                                <a class="btn btn-secondary btn-square rounded-circle me-2" href="#"><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-secondary btn-square rounded-circle me-2" href="#"><i
+                                        class="fab fa-linkedin-in"></i></a>
+                                <a class="btn btn-secondary btn-square rounded-circle" href="#"><i
+                                        class="fab fa-instagram"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-3">
-                    <div class="col-lg-12 col-md-12 pt-0 pt-lg-5 mb-5 footer-text">
-                        <h4 class="text-white mb-4">Departments</h4>
-                        <div class="d-flex flex-column justify-content-start">
-                            <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>PARC-NARC
-                                Islamabad</a>
-                            <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>PARC-AZRC
-                                D.I.Khan</a>
-                            <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>PARC-BARDC
-                                Quetta</a>
-                            <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>PARC-AZRI
-                                Bhawalpur</a>
-                            <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>PARC-NSCRI,
-                                Thatta</a>
-                            <a class="text-white" href="#"><i class="bi bi-arrow-right text-white me-2"></i>PARC-MARC
-                                Gilgit</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3">
-                    <div class="col-lg-12 col-md-12 pt-0 pt-lg-5 mb-5 footer-text">
-                        <h4 class="text-white mb-4">Quick Links</h4>
-                        <div class="d-flex flex-column justify-content-start">
-                            <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>
-                                PARC Agrotech Company (PATCO)</a>
-                            <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>
-                                PMAS-Arid Agriculture University Rawalpindi</a>
-                            <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>
-                                Ministry of National Food Security & Research</a>
-                            <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>
-                                University of Agriculture Faisalabad</a>
-                            <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>
-                                Pakistan Flora (Medicinal & Aromatic Plants Herbarium, PARC)</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3">
-                    <div class="col-lg-12  col-md-12 pt-0 pt-lg-5 mb-5 footer-text">
-                        <h4 class="text-white mb-4">Get In Touch</h4>
-                        <div class="d-flex mb-2">
-                            <i class="bi bi-geo-alt text-white me-2"></i>
-                            <p class="text-white mb-0">Plot 20 Sector G-5/1, Islamabad, Pakistan</p>
-                        </div>
-                        <div class="d-flex mb-2">
-                            <i class="bi bi-envelope-open text-white me-2"></i>
-                            <p class="text-white mb-0">webmaster@parc.gov.pk</p>
-                        </div>
-                        <div class="d-flex mb-2">
-                            <i class="bi bi-telephone text-white me-2"></i>
-                            <p class="text-white mb-0">0800-84420</p>
-                        </div>
-                        <div class="d-flex mt-4">
-                            <a class="btn btn-secondary btn-square rounded-circle me-2" href="#"><i
-                                    class="fab fa-twitter"></i></a>
-                            <a class="btn btn-secondary btn-square rounded-circle me-2" href="#"><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-secondary btn-square rounded-circle me-2" href="#"><i
-                                    class="fab fa-linkedin-in"></i></a>
-                            <a class="btn btn-secondary btn-square rounded-circle" href="#"><i
-                                    class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- <div class="col-lg-4 col-md-6 mt-lg-n5">
+                <!-- <div class="col-lg-4 col-md-6 mt-lg-n5">
                     <div
                         class="d-flex flex-column align-items-center justify-content-center text-center h-100 bg-secondary p-5">
                         <h4 class="text-white">Newsletter</h4>
@@ -867,8 +900,8 @@
                         </form>
                     </div>
                 </div> -->
+            </div>
         </div>
-    </div>
     </div>
     <div class="container-fluid bg-primary text-white py-4">
         <div class="container text-center">
