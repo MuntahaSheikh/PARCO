@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>PAKISTAN AGRICULTURE RESEARCH COUNCIL</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"> 
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="img/favicon.png" rel="shortcut icon" type="image/png">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -40,14 +40,17 @@
                 <div class="d-flex align-items-center ms-5">
                     <a href="index.html" class="navbar-brand d-flex align-items-center">
                         <img src="img/logo.jpg" alt="" width="70" height="70">
-                        <h1 class="m-0 fs-4 text-primary ms-4"><span class="text-secondary ms-4">Pakistan Agriculture
-                                Research Council </span> <br>
+                        <h1 class="m-0 fs-4 text-primary ms-4">
+                            <span class="text-secondary ms-4" id="animated-heading">Pakistan Agriculture Research Council</span> <br>
                             <hr style="padding: 0; margin: 1px; height: 2px;">
-                            Ministry of National Food Security & Research
+                            <span id="animated-heading2">Ministry of National Food Security and Research</span>
                         </h1>
+
                     </a>
                 </div>
             </div>
+            <script src="css/script.js"></script>
+
             <div class="col-lg-5">
                 <div class="d-flex align-items-center justify-content-end">
                     <i class="bi bi-phone-vibrate fs-2 text-primary me-2"></i>
@@ -195,7 +198,8 @@
                         <a href="index.html" class="dropdown-item">The Team</a>
                         <a href="index.html" class="dropdown-item">Testimonial</a>
                     <index.html           </div>
-                <a hrindex.html" class="nav-item nav-link">Contact</a> -->index.html        </div>
+                <a hrindex.html" class="nav-item nav-link">Contact</a> -->
+            </div>
     </nav>
     <!-- Navbar End -->
 
@@ -270,39 +274,39 @@
         </div>
     </div>
     <!-- Banner Start -->
-<!-- JavaScript -->
-<script>
-// Function to check if the element is at least 10% in the viewport
-function isInViewport(element, threshold = 0.2) {
-  const rect = element.getBoundingClientRect();
-  const elementHeight = rect.height;
-  const visibleHeight = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
-  
-  // Calculate the visible ratio of the element
-  const visibleRatio = visibleHeight / elementHeight;
+    <!-- JavaScript -->
+    <script>
+        // Function to check if the element is at least 10% in the viewport
+        function isInViewport(element, threshold = 0.2) {
+            const rect = element.getBoundingClientRect();
+            const elementHeight = rect.height;
+            const visibleHeight = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
 
-  // Check if visible ratio meets the threshold
-  return visibleRatio >= threshold;
-}
+            // Calculate the visible ratio of the element
+            const visibleRatio = visibleHeight / elementHeight;
 
-// Function to handle scrolling and add 'active' class
-function handleScroll() {
-  const elements = document.querySelectorAll('.slide-left, .slide-right');
-  
-  elements.forEach((element) => {
-    // Only add 'active' if element is in viewport and does not already have 'active'
-    if (isInViewport(element, 0.1) && !element.classList.contains('active')) {
-      element.classList.add('active');
-    }
-  });
-}
+            // Check if visible ratio meets the threshold
+            return visibleRatio >= threshold;
+        }
 
-// Listen for scroll events
-window.addEventListener('scroll', handleScroll);
+        // Function to handle scrolling and add 'active' class
+        function handleScroll() {
+            const elements = document.querySelectorAll('.slide-left, .slide-right');
 
-// Run on page load to check any elements already in view
-handleScroll();
-</script>
+            elements.forEach((element) => {
+                // Only add 'active' if element is in viewport and does not already have 'active'
+                if (isInViewport(element, 0.1) && !element.classList.contains('active')) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        // Listen for scroll events
+        window.addEventListener('scroll', handleScroll);
+
+        // Run on page load to check any elements already in view
+        handleScroll();
+    </script>
 
     <!-- About Start -->
     <div class="container-fluid about pt-5 slide-left">
@@ -661,7 +665,7 @@ handleScroll();
 
 
     <!-- Team Start -->
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-5 slide-left">
         <div class="container">
             <div class="mx-auto text-center mb-5" style="max-width: 500px;">
                 <h6 class="text-primary text-uppercase">Our Team & Experts</h6>
@@ -672,7 +676,9 @@ handleScroll();
                     <div class="row g-0">
                         <div class="col-10">
                             <div class="position-relative">
-                                <img class="img-fluid w-100" src="https://www.parc.gov.pk/SiteImage/Profiles/chairmanghulammuhammadali.jpeg" alt="Expert Photo">
+                                <img class="img-fluid w-100"
+                                    src="https://www.parc.gov.pk/SiteImage/Profiles/chairmanghulammuhammadali.jpeg"
+                                    alt="Expert Photo">
                                 <div class="position-absolute start-0 bottom-0 w-100 py-3 px-4"
                                     style="background: rgba(38, 116, 59, 0.85);">
                                     <h4 class="text-white">Dr. Ghulam Muhammad Ali (SI)</h4>
@@ -699,7 +705,9 @@ handleScroll();
                     <div class="row g-0">
                         <div class="col-10">
                             <div class="position-relative">
-                                <img class="img-fluid w-100" src="https://www.parc.gov.pk/SiteImage/Profiles/MemberFinance.jpg" alt="Expert Photo">
+                                <img class="img-fluid w-100"
+                                    src="https://www.parc.gov.pk/SiteImage/Profiles/MemberFinance.jpg"
+                                    alt="Expert Photo">
                                 <div class="position-absolute start-0 bottom-0 w-100 py-3 px-4"
                                     style="background: rgba(38, 116, 59, 0.85);">
                                     <h4 class="text-white">Mr. Muhammad Saeedullah Yousafzai</h4>
@@ -726,7 +734,9 @@ handleScroll();
                     <div class="row g-0">
                         <div class="col-10">
                             <div class="position-relative">
-                                <img class="img-fluid w-100" src="https://www.parc.gov.pk/SiteImage/Profiles/Andrabi%20sb.jpeg" alt="Expert Photo">
+                                <img class="img-fluid w-100"
+                                    src="https://www.parc.gov.pk/SiteImage/Profiles/Andrabi%20sb.jpeg"
+                                    alt="Expert Photo">
                                 <div class="position-absolute start-0 bottom-0 w-100 py-3 px-4"
                                     style="background: rgba(38, 116, 59, 0.85);">
                                     <h4 class="text-white">Dr. S. Murtaza Hassan Andrabi</h4>
