@@ -302,7 +302,7 @@
 /* Initial hidden state for both directions */
 .slide-left, .slide-right {
   opacity: 0;
-  transition: opacity 0.3s ease, transform 0.6s ease;
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 /* Slide from left */
