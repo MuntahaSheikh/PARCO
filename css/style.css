@@ -298,7 +298,17 @@
 }
 
 
-
+/* Initial hidden state for each character */
+.letter {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  /* Active state to make each character visible */
+  .letter.show {
+    opacity: 1;
+  }
+  
 /* Initial hidden state for both directions */
 .slide-left, .slide-right {
   opacity: 0;
