@@ -273,7 +273,7 @@
 <!-- JavaScript -->
 <script>
 // Function to check if the element is at least 10% in the viewport
-function isInViewport(element, threshold = 0.1) {
+function isInViewport(element, threshold = 0.01) {
   const rect = element.getBoundingClientRect();
   const elementHeight = rect.height;
   const visibleHeight = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
