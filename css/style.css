@@ -84,6 +84,9 @@
         font-size: 30px;
         font-weight: 600 !important;
     }
+    .carousel-item{
+        height: 60vh;
+    }
 }
 
 .carousel-control-prev,
@@ -297,40 +300,6 @@
     }
 }
 
+@media (min-width: 425px){
 
-/* Initial hidden state for each character */
-.letter {
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  
-  /* Active state to make each character visible */
-  .letter.show {
-    opacity: 1;
-  }
-  
-/* Initial hidden state for both directions */
-.slide-left, .slide-right {
-  opacity: 0;
-  transition: opacity 2s ease, transform 2s ease;
-}
-
-/* Slide from left */
-.slide-left {
-  transform: translateX(-100px); /* Positioned to the left */
-}
-
-.slide-left.active {
-  opacity: 1;
-  transform: translateX(0); /* Slide to original position */
-}
-
-/* Slide from right */
-.slide-right {
-  transform: translateX(100px); /* Positioned to the right */
-}
-
-.slide-right.active {
-  opacity: 1;
-  transform: translateX(0); /* Slide to original position */
 }
