@@ -29,9 +29,136 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <!-- Preloader Styles -->
+    <style>
+        /* Reset and Base Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            overflow-x: hidden;
+        }
+
+        /* Preloader Styling */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #004d1a;
+            color: #ffffff;
+            z-index: 10000;
+        }
+
+        .preloader__loader {
+            text-align: center;
+            animation: preloader__pulse 1s ease infinite;
+        }
+
+        .preloader__loader img {
+            animation: preloader__spin 1.5s linear infinite;
+        }
+
+        @keyframes preloader__pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        @keyframes preloader__spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Main Content Hidden by Default */
+        #main-content {
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        /* Header Section */
+        .header-section__container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 30vh;
+            background-color: #004d1a;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header-section__title {
+            font-size: 1.5rem;
+            color: #fff;
+        }
+
+        .header-section__line {
+            width: 80%;
+            margin: 10px auto;
+            height: 2px;
+            background-color: #FFD700;
+            border: none;
+        }
+
+        .header-section__animated-text,
+        .header-section__animated-text-secondary {
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        .header-section__animated-text {
+            font-size: 2em;
+            color: #FFD700;
+        }
+
+        .header-section__animated-text-secondary {
+            font-size: 1.25em;
+            color: #ffffff;
+        }
+    </style>
 </head>
 
 <body>
+
+    <!-- Preloader Start -->
+    <div id="preloader">
+        <div class="preloader__loader">
+            <div class="header-section__container">
+                <h1 class="header-section__title">
+                    <span id="animated-heading" class="header-section__animated-text">Pakistan Agriculture Research Council</span>
+                    <hr class="header-section__line">
+                    <span id="animated-heading2" class="header-section__animated-text-secondary">Ministry of National Food Security and Research</span>
+                </h1>
+            </div>
+            <img src="img/logo.jpg" alt="Logo" width="70" height="70">
+            <p>Loading...</p>
+        </div>
+    </div>
+    <!-- Preloader End -->
 
 
     <!-- Topbar Start -->
@@ -74,7 +201,8 @@
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-primary navbar-dark shadow-sm py-3 py-lg-0 px-3 px-lg-5">
         <a href="index.html" class="navbar-brand d-flex d-lg-none">
-            <h1 class="m-0 display-7 text-white" id="animated-heading"><span class="text-white">Pakistan Agriculture <br></span>Research Council</h1>
+            <h1 class="m-0 display-7 text-white" id="animated-heading"><span class="text-white">Pakistan Agriculture
+                    <br></span>Research Council</h1>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -931,6 +1059,29 @@
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/counterup/counterup.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- JavaScript to hide the loader after page load -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script>
+        // GSAP Loader Animation and Transition to Main Content
+        window.addEventListener("load", () => {
+            const preloader = document.getElementById("preloader");
+            const mainContent = document.getElementById("main-content");
+
+            // Loader Fade Out Animation
+            gsap.to(preloader, {
+                duration: 4,
+                opacity: 1,
+                onComplete: () => {
+                    preloader.style.display = "none";
+                    mainContent.style.visibility = "visible";
+                    gsap.to(mainContent, { opacity: 1, duration: 1 });
+                }
+            });
+        });
+    </script>
+
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
