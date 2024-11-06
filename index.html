@@ -270,10 +270,29 @@
         </div>
     </div>
     <!-- Banner Start -->
+<script> // Function to check if an element is in the viewport
+function isInViewport(element) {
+  const rect = element.getBoundingClientRect();
+  return rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight);
+}
 
+// Function to handle scrolling and add 'active' class
+function handleScroll() {
+  const elements = document.querySelectorAll('.slide-left, .slide-right');
+  
+  elements.forEach((element) => {
+    if (isInViewport(element)) {
+      element.classList.add('active');
+    }
+  });
+}
+
+// Listen for scroll events
+window.addEventListener('scroll', handleScroll);
+</script>
 
     <!-- About Start -->
-    <div class="container-fluid about pt-5">
+    <div class="container-fluid about pt-5 slide-left">
         <div class="container">
             <div class="row gx-5">
                 <div class="col-lg-4 mb-5 mb-lg-0">
